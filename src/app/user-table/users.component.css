@@ -1,0 +1,65 @@
+.header-container {
+    display: flex;
+    justify-content: end;
+  }
+  
+  .center-div {
+    display: flex;
+    justify-content: center;
+  }
+  
+  table {
+    width: 100%;
+  }
+  
+  .search-input {
+    padding: 8px;
+    margin: 10px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+  }
+  
+  .page-size-select {
+    padding: 8px;
+    margin: 10px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+  }
+  
+  .edit-input {
+    padding: 4px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .edit-button, .save-button, .delete-button, .nav-button {
+    padding: 8px 12px;
+    margin: 5px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  
+  .edit-button {
+    background-color: #4CAF50; /* Green */
+    color: white;
+  }
+  
+  .save-button {
+    background-color: #2196F3; /* Blue */
+    color: white;
+  }
+  
+  .delete-button {
+    background-color: #f44336; /* Red */
+    color: white;
+  }
+  
+  .nav-button {
+    background-color: #555555; /* Grey */
+    color: white;
+  }
+  

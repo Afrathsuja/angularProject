@@ -1,0 +1,50 @@
+<div>
+  <div class="header-container">
+    <input type="text" [(ngModel)]="searchTerm" placeholder="Search by name or email" class="search-input">
+    <select [(ngModel)]="resultsPerPage" class="page-size-select">
+      <option value="10">10</option>
+      <option value="15">15</option>
+      <option value="20">20</option>
+      <option value="all">All</option>
+    </select>
+  </div>
+
+  <div *ngIf="isLoading">
+    Loading...
+  </div>
+
+  <div *ngIf="!isLoading && filteredItems.length === 0">
+    No data available.
+  </div>
+
+  <table *ngIf="!isLoading && filteredItems.length > 0">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th (click)="sortItems('email')">Email {{ sortDirection('email') }}</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of paginatedItems">
+        <td>{{ item.id }}</td>
+        <td *ngIf="!item.isEditing">{{ item.name }}</td>
+        <td *ngIf="item.isEditing"><input type="text" [(ngModel)]="item.name" class="edit-input"></td>
+        <td *ngIf="!item.isEditing">{{ item.email }}</td>
+        <td *ngIf="item.isEditing"><input type="text" [(ngModel)]="item.email" class="edit-input"></td>
+        <td class="center-div">
+          <button (click)="editItem(item)" class="edit-button">Edit</button>
+          <button *ngIf="item.isEditing" (click)="saveItem(item)" class="save-button">Save</button>
+          <button (click)="deleteItem(item.id)" class="delete-button">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div>
+    <button (click)="prevPage()" [disabled]="currentPage === 1" class="nav-button">Previous</button>
+    <span>{{ currentPage }}</span>
+    <button (click)="nextPage()" [disabled]="currentPage === totalPages" class="nav-button">Next</button>
+  </div>
+</div>
